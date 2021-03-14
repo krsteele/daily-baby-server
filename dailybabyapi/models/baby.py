@@ -1,5 +1,6 @@
 from django.db import models
 from .photos import Photo
+from cloudinary.models import CloudinaryField
 
 
 class Baby(models.Model):
@@ -9,4 +10,4 @@ class Baby(models.Model):
     last_name = models.CharField(max_length=25)
     nickname = models.CharField(max_length=25)
     birth_date = models.DateField(default="0000-00-00",)
-    profile_image = models.ForeignKey(Photo, on_delete=models.DO_NOTHING, null=True)
+    profile_image = CloudinaryField('profile_image')
