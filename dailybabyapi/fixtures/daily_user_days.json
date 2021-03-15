@@ -1,6 +1,6 @@
 [
     {
-        "model": "rareapi.dailyuserday",
+        "model": "dailybabyapi.dailyuserday",
         "pk": 1,
         "fields": {
             "user": 1,
@@ -8,7 +8,7 @@
         }
     },
     {
-        "model": "rareapi.dailyuserday",
+        "model": "dailybabyapi.dailyuserday",
         "pk": 2,
         "fields": {
             "user": 1,
@@ -16,7 +16,7 @@
         }
     },
     {
-        "model": "rareapi.dailyuserday",
+        "model": "dailybabyapi.dailyuserday",
         "pk": 3,
         "fields": {
             "user": 1,
@@ -24,7 +24,7 @@
         }
     },
     {
-        "model": "rareapi.dailyuserday",
+        "model": "dailybabyapi.dailyuserday",
         "pk": 4,
         "fields": {
             "user": 1,
@@ -32,7 +32,7 @@
         }
     },
     {
-        "model": "rareapi.dailyuserday",
+        "model": "dailybabyapi.dailyuserday",
         "pk": 5,
         "fields": {
             "user": 1,
@@ -40,7 +40,7 @@
         }
     },
     {
-        "model": "rareapi.dailyuserday",
+        "model": "dailybabyapi.dailyuserday",
         "pk": 6,
         "fields": {
             "user": 1,
@@ -48,7 +48,7 @@
         }
     },
     {
-        "model": "rareapi.dailyuserday",
+        "model": "dailybabyapi.dailyuserday",
         "pk": 7,
         "fields": {
             "user": 1,
@@ -56,7 +56,7 @@
         }
     },
     {
-        "model": "rareapi.dailyuserday",
+        "model": "dailybabyapi.dailyuserday",
         "pk": 8,
         "fields": {
             "user": 2,
@@ -64,7 +64,7 @@
         }
     },
     {
-        "model": "rareapi.dailyuserday",
+        "model": "dailybabyapi.dailyuserday",
         "pk": 9,
         "fields": {
             "user": 2,
@@ -72,7 +72,7 @@
         }
     },
     {
-        "model": "rareapi.dailyuserday",
+        "model": "dailybabyapi.dailyuserday",
         "pk": 10,
         "fields": {
             "user": 2,
