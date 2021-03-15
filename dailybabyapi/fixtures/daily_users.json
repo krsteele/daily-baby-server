@@ -1,0 +1,22 @@
+[
+    {
+        "model": "rareapi.dailyuser",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "text_time": null,
+            "phone_number": "8504853419",
+            "profile_image": "https://res.cloudinary.com/fluffydaydream/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,b_rgb:262c35/v1615775707/F8A4D95A-CC74-4E56-8E3D-6D7E8D43AE43_wmcjtb.jpg"
+        }
+    },
+    {
+        "model": "rareapi.dailyuser",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "text_time": null,
+            "phone_number": "3144090183",
+            "profile_image": "https://res.cloudinary.com/fluffydaydream/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,b_rgb:262c35/v1615775784/AC2E99D4-E695-4F05-8795-A3AAD66AD409_pogcuz.heic"
+        }
+    }
+]
