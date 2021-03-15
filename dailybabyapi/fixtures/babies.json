@@ -1,0 +1,14 @@
+[
+    {
+        "model": "dailybabyapi.baby",
+        "pk": 1,
+        "fields": {
+            "first_name": "Conifer",
+            "middle_name": "Steele",
+            "last_name": "Sholar",
+            "nickname": "Mr. Baby",
+            "birth_date": "2019-12-03",
+            "profile_image": "https://res.cloudinary.com/fluffydaydream/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,b_rgb:262c35/v1615750963/CCAA4E5A-3EFB-41FD-9038-96BAFE95A56D_1_201_a_ik1a06.jpg"
+        }
+    }
+]
