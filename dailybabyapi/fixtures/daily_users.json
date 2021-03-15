@@ -1,6 +1,6 @@
 [
     {
-        "model": "rareapi.dailyuser",
+        "model": "dailybabyapi.dailyuser",
         "pk": 1,
         "fields": {
             "user": 1,
@@ -10,7 +10,7 @@
         }
     },
     {
-        "model": "rareapi.dailyuser",
+        "model": "dailybabyapi.dailyuser",
         "pk": 2,
         "fields": {
             "user": 2,

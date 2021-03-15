@@ -1,6 +1,6 @@
 [
     {
-        "model": "rareapi.userbaby",
+        "model": "dailybabyapi.userbaby",
         "pk": 1,
         "fields": {
             "user": 1,
@@ -9,7 +9,7 @@
         }
     },
     {
-        "model": "rareapi.userbaby",
+        "model": "dailybabyapi.userbaby",
         "pk": 2,
         "fields": {
             "user": 2,
