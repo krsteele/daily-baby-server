@@ -1,0 +1,37 @@
+[
+    {
+        "model": "dailybabyapi.prompt",
+        "pk": 1,
+        "fields": {
+            "prompt": "Does baby have a favorite toy right now?"
+        }
+    },
+    {
+        "model": "dailybabyapi.prompt",
+        "pk": 2,
+        "fields": {
+            "prompt": "Have you noticed any new ways baby is communicating with you?"
+        }
+    },
+    {
+        "model": "dailybabyapi.prompt",
+        "pk": 3,
+        "fields": {
+            "prompt": "What is baby's newest development?"
+        }
+    },
+    {
+        "model": "dailybabyapi.prompt",
+        "pk": 4,
+        "fields": {
+            "prompt": "Has baby made any new friends recently?"
+        }
+    },
+    {
+        "model": "dailybabyapi.prompt",
+        "pk": 5,
+        "fields": {
+            "prompt": "What is baby's favorite food at the moment?"
+        }
+    }
+]

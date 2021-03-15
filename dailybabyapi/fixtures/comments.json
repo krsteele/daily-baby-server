@@ -1,0 +1,32 @@
+[
+    {
+        "model": "dailybabyapi.comment",
+        "pk": 1,
+        "fields": {
+            "entry": 7,
+            "user_baby": 2,
+            "created_on": "2020-06-18T14:51:39.989Z",
+            "content": "I can't wait to see if he likes kimchi!"
+        }
+    },
+    {
+        "model": "dailybabyapi.comment",
+        "pk": 2,
+        "fields": {
+            "entry": 7,
+            "user_baby": 1,
+            "created_on": "2020-06-18T15:53:39.989Z",
+            "content": "Ew. But he inherited all your other traits, so I'm sure he'll like stinky food too."
+        }
+    },
+    {
+        "model": "dailybabyapi.comment",
+        "pk": 3,
+        "fields": {
+            "entry": 9,
+            "user_baby": 2,
+            "created_on": "2020-06-18T15:53:39.989Z",
+            "content": "I can't believe I missed that!"
+        }
+    }
+]

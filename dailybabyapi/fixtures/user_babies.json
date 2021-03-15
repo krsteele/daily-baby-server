@@ -1,0 +1,20 @@
+[
+    {
+        "model": "dailybabyapi.userbaby",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "baby": 1,
+            "relationship": 1
+        }
+    },
+    {
+        "model": "dailybabyapi.userbaby",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "baby": 1,
+            "relationship": 2
+        }
+    }
+]

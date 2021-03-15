@@ -1,0 +1,134 @@
+[
+    {
+        "model": "dailybabyapi.entry",
+        "pk": 1,
+        "fields": {
+            "user_baby": 1,
+            "prompt": null,
+            "created_on": "2019-12-15",
+            "text": "He's such a sleepy little bundle. I could watch him sleep all day.",
+            "is_private": false
+        }
+    },
+    {
+        "model": "dailybabyapi.entry",
+        "pk": 2,
+        "fields": {
+            "user_baby": 2,
+            "prompt": null,
+            "created_on": "2020-01-12",
+            "text": "His eyes are so blue!",
+            "is_private": false
+        }
+    },
+    {
+        "model": "dailybabyapi.entry",
+        "pk": 3,
+        "fields": {
+            "user_baby": 1,
+            "prompt": 3,
+            "created_on": "2020-02-16",
+            "text": "Conifer is starting to smile more and is really becoming active! He kicks and kicks when he's excited.",
+            "is_private": false
+        }
+    },
+    {
+        "model": "dailybabyapi.entry",
+        "pk": 4,
+        "fields": {
+            "user_baby": 2,
+            "prompt": 4,
+            "created_on": "2020-03-01",
+            "text": "Conifer discovered his reflection in my sunglasses today. It's so fun watching him develop.",
+            "is_private": false
+        }
+    },
+    {
+        "model": "dailybabyapi.entry",
+        "pk": 5,
+        "fields": {
+            "user_baby": 1,
+            "prompt": 1,
+            "created_on": "2020-03-20",
+            "text": "Conifer loves the sweet little rattle given to him by John and Sally Mae. He tries to stuff the whole thing in his mouth, which is hilarious to watch.",
+            "is_private": false
+        }
+    },
+    {
+        "model": "dailybabyapi.entry",
+        "pk": 6,
+        "fields": {
+            "user_baby": 1,
+            "prompt": 2,
+            "created_on": "2020-05-15",
+            "text": "We've been hanging out outside a lot. Conifer loves to play in the pool. He's laughing a lot lately.",
+            "is_private": false
+        }
+    },
+    {
+        "model": "dailybabyapi.entry",
+        "pk": 7,
+        "fields": {
+            "user_baby": 1,
+            "prompt": 5,
+            "created_on": "2020-06-17",
+            "text": "Conifer loves blueberries! Really, any fruit. And he's such a messy little eater, but so fun to watch.",
+            "is_private": false
+        }
+    },
+    {
+        "model": "dailybabyapi.entry",
+        "pk": 8,
+        "fields": {
+            "user_baby": 1,
+            "prompt": 4,
+            "created_on": "2020-09-12",
+            "text": "Conifer loves all of his Denver friends. He's met Evette, Jason, Lauren, and Nick. Today we went on a seven-mile hike with Nick! Conifer loved hanging out near the alpine lake, and slept all the way home.",
+            "is_private": false
+        }
+    },
+    {
+        "model": "dailybabyapi.entry",
+        "pk": 9,
+        "fields": {
+            "user_baby": 1,
+            "prompt": null,
+            "created_on": "2020-09-16",
+            "text": "While riding in the back of the car today, Conifer reached out, grabbed the whole apple I was eating and took a big bite out of it! Ha! It's amazing what you can do with only two teeth.",
+            "is_private": false
+        }
+    },
+    {
+        "model": "dailybabyapi.entry",
+        "pk": 10,
+        "fields": {
+            "user_baby": 2,
+            "prompt": null,
+            "created_on": "2020-12-01",
+            "text": "Now that he has teeth, we've introduced tooth brushing to the nighttime routine. He seems to really love it, but it's probably the pear-flavored toothpaste.",
+            "is_private": false
+        }
+    },
+    {
+        "model": "dailybabyapi.entry",
+        "pk": 11,
+        "fields": {
+            "user_baby": 2,
+            "prompt": null,
+            "created_on": "2020-01-07",
+            "text": "I love playing my horn for Conifer and watching how he responds to the music.",
+            "is_private": false
+        }
+    },
+    {
+        "model": "dailybabyapi.entry",
+        "pk": 12,
+        "fields": {
+            "user_baby": 1,
+            "prompt": null,
+            "created_on": "2020-02-28",
+            "text": "Conifer loves bathtime! It's one of my favorite parts of the day. He thinks it's so funny to splash us.",
+            "is_private": false
+        }
+    }
+]

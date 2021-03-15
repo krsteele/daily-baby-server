@@ -1,0 +1,65 @@
+[
+    {
+        "model": "dailybabyapi.relationship",
+        "pk": 1,
+        "fields": {
+            "type": "Mother"
+        }
+    },
+    {
+        "model": "dailybabyapi.relationship",
+        "pk": 2,
+        "fields": {
+            "type": "Father"
+        }
+    },
+    {
+        "model": "dailybabyapi.relationship",
+        "pk": 3,
+        "fields": {
+            "type": "Grandmother"
+        }
+    },
+    {
+        "model": "dailybabyapi.relationship",
+        "pk": 4,
+        "fields": {
+            "type": "Grandfather"
+        }
+    },
+    {
+        "model": "dailybabyapi.relationship",
+        "pk": 5,
+        "fields": {
+            "type": "Sibling"
+        }
+    },
+    {
+        "model": "dailybabyapi.relationship",
+        "pk": 6,
+        "fields": {
+            "type": "Aunt"
+        }
+    },
+    {
+        "model": "dailybabyapi.relationship",
+        "pk": 7,
+        "fields": {
+            "type": "Uncle"
+        }
+    },
+    {
+        "model": "dailybabyapi.relationship",
+        "pk": 8,
+        "fields": {
+            "type": "Cousin"
+        }
+    },
+    {
+        "model": "dailybabyapi.relationship",
+        "pk": 9,
+        "fields": {
+            "type": "Friend"
+        }
+    }
+]

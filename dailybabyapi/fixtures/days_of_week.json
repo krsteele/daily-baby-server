@@ -1,0 +1,51 @@
+[
+    {
+        "model": "dailybabyapi.dayofweek",
+        "pk": 1,
+        "fields": {
+            "day": "Monday"
+        }
+    },
+    {
+        "model": "dailybabyapi.dayofweek",
+        "pk": 2,
+        "fields": {
+            "day": "Tuesday"
+        }
+    },
+    {
+        "model": "dailybabyapi.dayofweek",
+        "pk": 3,
+        "fields": {
+            "day": "Wednesday"
+        }
+    },
+    {
+        "model": "dailybabyapi.dayofweek",
+        "pk": 4,
+        "fields": {
+            "day": "Thursday"
+        }
+    },
+    {
+        "model": "dailybabyapi.dayofweek",
+        "pk": 5,
+        "fields": {
+            "day": "Friday"
+        }
+    },
+    {
+        "model": "dailybabyapi.dayofweek",
+        "pk": 6,
+        "fields": {
+            "day": "Saturday"
+        }
+    },
+    {
+        "model": "dailybabyapi.dayofweek",
+        "pk": 7,
+        "fields": {
+            "day": "Sunday"
+        }
+    }
+]
