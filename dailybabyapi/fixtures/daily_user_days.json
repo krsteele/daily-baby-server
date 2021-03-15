@@ -1,0 +1,82 @@
+[
+    {
+        "model": "rareapi.dailyuserday",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "day": 1
+        }
+    },
+    {
+        "model": "rareapi.dailyuserday",
+        "pk": 2,
+        "fields": {
+            "user": 1,
+            "day": 2
+        }
+    },
+    {
+        "model": "rareapi.dailyuserday",
+        "pk": 3,
+        "fields": {
+            "user": 1,
+            "day": 3
+        }
+    },
+    {
+        "model": "rareapi.dailyuserday",
+        "pk": 4,
+        "fields": {
+            "user": 1,
+            "day": 4
+        }
+    },
+    {
+        "model": "rareapi.dailyuserday",
+        "pk": 5,
+        "fields": {
+            "user": 1,
+            "day": 5
+        }
+    },
+    {
+        "model": "rareapi.dailyuserday",
+        "pk": 6,
+        "fields": {
+            "user": 1,
+            "day": 6
+        }
+    },
+    {
+        "model": "rareapi.dailyuserday",
+        "pk": 7,
+        "fields": {
+            "user": 1,
+            "day": 7
+        }
+    },
+    {
+        "model": "rareapi.dailyuserday",
+        "pk": 8,
+        "fields": {
+            "user": 2,
+            "day": 1
+        }
+    },
+    {
+        "model": "rareapi.dailyuserday",
+        "pk": 9,
+        "fields": {
+            "user": 2,
+            "day": 3
+        }
+    },
+    {
+        "model": "rareapi.dailyuserday",
+        "pk": 10,
+        "fields": {
+            "user": 2,
+            "day": 5
+        }
+    }
+]
