@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from dailybabyapi.models import Relationship
 
-class Relationship(ViewSet):
+class RelationshipView(ViewSet):
     
     def list(self, request):
         """Handle GET requests to relationship resource
@@ -25,4 +25,4 @@ class RelationshipSerializer(serializers.ModelSerializer):
     """JSON serializer for relationships"""
     class Meta:
         model = Relationship
-        fields = ('id', 'relationship')
+        fields = ('id', 'type')
