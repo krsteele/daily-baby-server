@@ -4,9 +4,11 @@ from rest_framework.decorators import action
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
+from dailybabyapi.models.baby import Baby
 from dailybabyapi.models import DailyUser
 from dailybabyapi.models import DailyUserDay
 from dailybabyapi.models import DayOfWeek
+from dailybabyapi.models import UserBaby
 
 
 class Profile(ViewSet):
@@ -20,9 +22,12 @@ class Profile(ViewSet):
         """
         dailyuser = DailyUser.objects.get(user=request.auth.user)
         dailyuser_days = DailyUserDay.objects.filter(user=dailyuser)
+        userbabies = UserBaby.objects.filter(user=dailyuser)
 
         dailyuser_days = DailyUserDaysSerializer(
             dailyuser_days, many=True, context={'request': request})
+        userbabies = UserBabySerializer(
+            userbabies, many=True, context={'request': request})
         dailyuser = DailyUserSerializer(
             dailyuser, many=False, context={'request': request})
 
@@ -30,6 +35,7 @@ class Profile(ViewSet):
         profile = {}
         profile["dailyuser"] = dailyuser.data
         profile["dailyuser_days"] = dailyuser_days.data
+        profile["userbabies"] = userbabies.data
 
         return Response(profile)
 
@@ -64,3 +70,17 @@ class DailyUserDaysSerializer(serializers.ModelSerializer):
     class Meta:
         model = DailyUserDay
         fields = ('day',)
+
+class BabySerializer(serializers.ModelSerializer):
+    """JSON serializer for baby"""
+    class Meta:
+        model = Baby
+        fields = ('id', 'first_name', 'middle_name', 'last_name', 'nickname', 'profile_image')
+
+class UserBabySerializer(serializers.ModelSerializer):
+    """JSON serializer for userBabies"""
+    baby = BabySerializer(many=False)
+
+    class Meta:
+        model = UserBaby
+        fields = ('id', 'baby')
