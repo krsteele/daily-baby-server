@@ -25,9 +25,9 @@ class Entry(models.Model):
         self.__comments = value
     
     @property
-    def photos(self):
-        return self.__photos
+    def photo(self):
+        return self.__photo
 
-    @photos.setter
-    def photos(self, value):
-        self.__photos = value
+    @photo.setter
+    def photo(self, value):
+        self.__photo = value
