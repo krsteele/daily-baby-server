@@ -83,4 +83,4 @@ class UserBabySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserBaby
-        fields = ('id', 'baby')
+        fields = ('id', 'baby', 'relationship')
