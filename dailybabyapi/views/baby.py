@@ -69,6 +69,23 @@ class BabyView(ViewSet):
         except Exception as ex:
             return HttpResponseServerError(ex)
 
+    def update(self, request, pk=None):
+        """Handle PUT requests for a baby
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+        baby = Baby.objects.get(pk=pk)
+        baby.first_name = request.data["firstName"]
+        baby.middle_name = request.data["middleName"]
+        baby.last_name = request.data["lastName"]
+        baby.nickname = request.data["nickname"]
+        baby.birth_date = request.data["birthdate"]
+        baby.profile_image = request.data["profileImage"]
+        baby.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+
 
 class BabySerializer(serializers.ModelSerializer):
     class Meta:
