@@ -11,7 +11,7 @@ from rest_framework import serializers
 from rest_framework import status
 
 from django.contrib.auth.models import User
-from dailybabyapi.models import Entry
+from dailybabyapi.models import Entry, user_baby
 from dailybabyapi.models import Prompt
 from dailybabyapi.models import Comment
 from dailybabyapi.models import UserBaby
@@ -85,6 +85,30 @@ class EntryView(ViewSet):
         
         except Exception as ex:
             return HttpResponseServerError(ex)
+
+
+    def list(self, request):
+        """Handle GET requests for entries
+
+            Returns:
+                Response -- JSON serialized list of entries filtered by userbaby id
+        """
+
+        entries = Entry.objects.all()
+        # dailyUser = DailyUser.objects.get(user=request.auth.user)
+        
+    
+        # userBabyRelationships = UserBaby.objects.filter(user=dailyUser)
+
+        #HALP! I need entries where entry.userbaby.user_id == dailyUser
+        # can't figure out how to access that relationship. filter? for...in?
+
+        ordered_entries = entries.order_by('created_on')
+
+        serializer = EntrySerializer(
+            ordered_entries, many=True, context={'request': request})
+        return Response(serializer.data)
+
 
 
 class EntrySerializer(serializers.ModelSerializer):
