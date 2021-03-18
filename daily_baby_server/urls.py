@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from dailybabyapi.views.entry import EntryView
 from django.contrib import admin
 from django.conf.urls import include
 from rest_framework import routers
@@ -32,6 +33,7 @@ router.register(r'daysOfWeek', DaysOfWeek, 'daysOfWeek')
 router.register(r'relationships', RelationshipView, 'relationship')
 router.register(r'babies', BabyView, 'baby')
 router.register(r'users', Users, 'user')
+router.register(r'entries', EntryView, 'entry')
 
 
 urlpatterns = [
