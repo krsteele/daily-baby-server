@@ -21,7 +21,7 @@ class Users(ViewSet):
         dailyUser.user.first_name = request.data["firstName"]
         dailyUser.user.last_name = request.data["lastName"]
         dailyUser.user.email = request.data["email"]
-        #password??? other fields???
+
         dailyUser.text_time = request.data["textTime"]
         dailyUser.phone_number = request.data["phone"]
         dailyUser.profile_image = request.data["profileImage"]
