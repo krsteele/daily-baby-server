@@ -1,6 +1,5 @@
 """View module for handling requests about entries"""
 
-from dailybabyapi.models.daily_user import DailyUser
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseServerError
 
@@ -11,6 +10,7 @@ from rest_framework import serializers
 from rest_framework import status
 
 from django.contrib.auth.models import User
+from dailybabyapi.models.daily_user import DailyUser
 from dailybabyapi.models import Entry, user_baby
 from dailybabyapi.models import Prompt
 from dailybabyapi.models import Comment
@@ -48,12 +48,8 @@ class EntryView(ViewSet):
         # instantiate a Photo, assign value sent from client, save new Photo
         pic = Photo()
         pic.image = request.data["image"]
+        pic.entry = entry
         pic.save()
-        # instantiate an EntryPhoto, assign values of newly created objects, save relationship
-        # entryPhoto = EntryPhoto()
-        # entryPhoto.photo = pic
-        # entryPhoto.entry = entry
-        # entryPhoto.save()
 
         try:
             serializer = EntrySerializer(entry, context={'request': request})
