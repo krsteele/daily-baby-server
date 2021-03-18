@@ -4,7 +4,6 @@ from .daily_user_days import DailyUserDay
 from .daily_user import DailyUser
 from .days_of_week import DayOfWeek
 from .entries import Entry
-from .entry_photos import EntryPhoto
 from .photos import Photo
 from .prompts import Prompt
 from .relationship import Relationship
