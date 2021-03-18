@@ -68,19 +68,41 @@ class EntryView(ViewSet):
             Returns:
                 Response -- JSON serialized entry instance
         """
-
+        # get the current user
         dailyUser = DailyUser.objects.get(user=request.auth.user)
 
         try:
+            # get the requested entry
             entry = Entry.objects.get(pk=pk)
-
+            # get the comments for the requested entry
+            entryComments = Comment.objects.filter(entry=entry)
+            # if there are comments for the entry, add them
+            if entryComments.count() > 0:
+                entry.comments = entryComments
+            # if not, empty list
+            else:
+                entry.comments = []
+            # if the current user created this entry
             if entry.user_baby.user == dailyUser: 
                 entry.by_current_user = True
+            # if not
             else:
                 entry.by_current_user = False
+            # Is there a photo with a matching entry
+            try:
+                entryPhoto = Photo.objects.get(entry=entry)
+                entry.photo = entryPhoto
+            # If no photo
+            except Photo.DoesNotExist as ex:
+                pass
+            # # Get the baby that matches this entry's user_baby
+            # baby = Baby.objects.get(baby=entry.user_baby.baby)
+            # Serialize needed data
+            # dailyUser = DailyUserSerializer(dailyUser, many=False, context={'request': request})
+            requestedEntry = EntrySerializer(entry, context={'request': request})
+            # Contruct the JSON structure for the response
 
-            serializer = EntrySerializer(entry, context={'request': request})
-            return Response(serializer.data)
+            return Response(requestedEntry.data)
         
         except Exception as ex:
             return HttpResponseServerError(ex)
@@ -120,9 +142,52 @@ class EntryView(ViewSet):
         return Response(serializer.data)
 
 
+class UserSerializer(serializers.ModelSerializer):
+    """JSON serializer for dailyuser's related Django user"""
+    class Meta:
+        model = User
+        fields = ('username',)
+
+class DailyUserSerializer(serializers.ModelSerializer):
+    """JSON serializer for dailyuser"""
+    user = UserSerializer(many=False)
+
+    class Meta:
+        model = DailyUser
+        fields = ('user', 'profile_image')
+
+class BabySerializer(serializers.ModelSerializer):
+    """JSON serializer for baby"""
+    class Meta:
+        model = Baby
+        fields = ('id', 'nickname', 'profile_image')
+
+class UserBabySerializer(serializers.ModelSerializer):
+    """JSON serializer for userBabies"""
+    baby = BabySerializer(many=False)
+    user = DailyUserSerializer(many=False)
+
+    class Meta:
+        model = UserBaby
+        fields = ('id', 'baby', 'user', 'relationship')
+
+class PhotoSerializer(serializers.ModelSerializer):
+    """JSON serializer for photo"""
+    class Meta:
+        model = Photo
+        fields = ('image',)
+
+class CommentsSerializer(serializers.ModelSerializer):
+    """JSON serializer for comments"""
+    class Meta:
+        model = Comment
+        fields = ('id', 'user_baby', 'created_on', 'content')
 
 class EntrySerializer(serializers.ModelSerializer):
+    photo = PhotoSerializer(many=False)
+    comments = CommentsSerializer(many=True)
+    user_baby = UserBabySerializer(many=False)
+
     class Meta:
         model = Entry
-        fields = ('id', 'user_baby', 'prompt', 'created_on', 'text', 'is_private', 'by_current_user')
-        depth = 3
+        fields = ('id', 'user_baby', 'prompt', 'created_on', 'text', 'is_private', 'photo', 'by_current_user', 'comments')
