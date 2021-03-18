@@ -86,6 +86,25 @@ class EntryView(ViewSet):
         except Exception as ex:
             return HttpResponseServerError(ex)
 
+    
+    def destroy(self, request, pk=None):
+            """Handle DELETE requests for a single entry
+
+            Returns:
+                Response -- 200, 404, or 500 status code
+            """
+            try:
+                entry = Entry.objects.get(pk=pk)
+                entry.delete()
+
+                return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+            except Entry.DoesNotExist as ex:
+                return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
+            except Exception as ex:
+                return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
     def list(self, request):
         """Handle GET requests for entries
