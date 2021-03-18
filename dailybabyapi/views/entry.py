@@ -103,6 +103,35 @@ class EntryView(ViewSet):
         except Exception as ex:
             return HttpResponseServerError(ex)
 
+
+    def update(self, request, pk=None):
+        """Handle PUT operations
+
+            Returns:
+                Response -- 204_NO_CONTENT
+        """
+
+        # get the user via the auth token
+        dailyUser = DailyUser.objects.get(user=request.auth.user)
+        entry = Entry.objects.get(pk=pk)
+        entry.created_on = request.data["created_on"]
+        entry.text = request.data["text"]
+        entry.is_private = request.data["is_private"]
+        prompt = Prompt.objects.get(pk=request.data["prompt"])
+        entry.prompt = prompt
+        userBaby = UserBaby.objects.get(user=dailyUser)
+        entry.user_baby = userBaby
+        entry.save()
+        # find and delete photo with same entry id
+        Photo.objects.filter(entry=entry).delete()
+        # instantiate a Photo, assign value sent from client, save new Photo
+        pic = Photo()
+        pic.image = request.data["image"]
+        pic.entry = entry
+        pic.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
     
     def destroy(self, request, pk=None):
             """Handle DELETE requests for a single entry
@@ -133,7 +162,15 @@ class EntryView(ViewSet):
     
         entries = Entry.objects.filter(user_baby__baby=baby).order_by('created_on')
 
-        serializer = EntrySerializer(
+        for entry in entries:
+            try:
+                entryPhoto = Photo.objects.get(entry=entry)
+                entry.photo = entryPhoto
+            # If no photo
+            except Photo.DoesNotExist as ex:
+                pass
+
+        serializer = EntryListSerializer(
             entries, many=True, context={'request': request})
         return Response(serializer.data)
 
@@ -187,3 +224,11 @@ class EntrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Entry
         fields = ('id', 'user_baby', 'prompt', 'created_on', 'text', 'is_private', 'photo', 'by_current_user', 'comments')
+
+class EntryListSerializer(serializers.ModelSerializer):
+    photo = PhotoSerializer(many=False)
+    user_baby = UserBabySerializer(many=False)
+
+    class Meta:
+        model = Entry
+        fields = ('id', 'user_baby', 'prompt', 'created_on', 'text', 'is_private', 'photo')
