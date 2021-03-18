@@ -16,7 +16,6 @@ from dailybabyapi.models import Prompt
 from dailybabyapi.models import Comment
 from dailybabyapi.models import UserBaby
 from dailybabyapi.models import Baby
-from dailybabyapi.models import EntryPhoto
 from dailybabyapi.models import Photo
 
 from datetime import date
@@ -51,10 +50,10 @@ class EntryView(ViewSet):
         pic.image = request.data["image"]
         pic.save()
         # instantiate an EntryPhoto, assign values of newly created objects, save relationship
-        entryPhoto = EntryPhoto()
-        entryPhoto.photo = pic
-        entryPhoto.entry = entry
-        entryPhoto.save()
+        # entryPhoto = EntryPhoto()
+        # entryPhoto.photo = pic
+        # entryPhoto.entry = entry
+        # entryPhoto.save()
 
         try:
             serializer = EntrySerializer(entry, context={'request': request})
