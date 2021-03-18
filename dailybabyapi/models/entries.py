@@ -7,3 +7,11 @@ class Entry(models.Model):
     created_on = models.DateField(auto_now=False, auto_now_add=False)
     text = models.CharField(max_length=1500)
     is_private = models.BooleanField(default=None)
+
+    @property
+    def by_current_user(self):
+        return self.__by_current_user
+
+    @by_current_user.setter
+    def by_current_user(self, value):
+        self.__by_current_user = value
