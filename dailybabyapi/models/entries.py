@@ -15,3 +15,19 @@ class Entry(models.Model):
     @by_current_user.setter
     def by_current_user(self, value):
         self.__by_current_user = value
+    
+    @property
+    def comments(self):
+        return self.__comments
+
+    @comments.setter
+    def comments(self, value):
+        self.__comments = value
+    
+    @property
+    def photos(self):
+        return self.__photos
+
+    @photos.setter
+    def photos(self, value):
+        self.__photos = value
