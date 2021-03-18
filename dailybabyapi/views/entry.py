@@ -112,20 +112,12 @@ class EntryView(ViewSet):
             Returns:
                 Response -- JSON serialized list of entries filtered by userbaby id
         """
-
-        entries = Entry.objects.all()
-        # dailyUser = DailyUser.objects.get(user=request.auth.user)
-        
+        baby= Baby.objects.get(pk=request.query_params['babyId'])
     
-        # userBabyRelationships = UserBaby.objects.filter(user=dailyUser)
-
-        #HALP! I need entries where entry.userbaby.user_id == dailyUser
-        # can't figure out how to access that relationship. filter? for...in?
-
-        ordered_entries = entries.order_by('created_on')
+        entries = Entry.objects.filter(user_baby__baby=baby).order_by('created_on')
 
         serializer = EntrySerializer(
-            ordered_entries, many=True, context={'request': request})
+            entries, many=True, context={'request': request})
         return Response(serializer.data)
 
 
