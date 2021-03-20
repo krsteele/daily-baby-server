@@ -55,21 +55,13 @@ class DailyUserSerializer(serializers.ModelSerializer):
         model = DailyUser
         fields = ('user', 'text_time', 'phone_number', 'profile_image')
 
-
-class DaysOfWeekSerializer(serializers.ModelSerializer):
-    """JSON serializer for daysOfWeek"""
-    class Meta:
-        model = DayOfWeek
-        fields = ('day',)
-
-
 class DailyUserDaysSerializer(serializers.ModelSerializer):
     """JSON serializer for dailyUserDays"""
-    day = DaysOfWeekSerializer(many=False)
 
     class Meta:
         model = DailyUserDay
         fields = ('day',)
+        depth = 1
 
 class BabySerializer(serializers.ModelSerializer):
     """JSON serializer for baby"""
