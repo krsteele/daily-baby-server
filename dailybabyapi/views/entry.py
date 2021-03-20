@@ -160,7 +160,7 @@ class EntryView(ViewSet):
         """
         baby= Baby.objects.get(pk=request.query_params['babyId'])
     
-        entries = Entry.objects.filter(user_baby__baby=baby).order_by('created_on')
+        entries = Entry.objects.filter(user_baby__baby=baby).order_by('-created_on')
 
         for entry in entries:
             try:
