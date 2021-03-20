@@ -67,7 +67,7 @@ class BabySerializer(serializers.ModelSerializer):
     """JSON serializer for baby"""
     class Meta:
         model = Baby
-        fields = ('id', 'first_name', 'middle_name', 'last_name', 'nickname', 'profile_image')
+        fields = ('id', 'first_name', 'middle_name', 'last_name', 'nickname', 'birth_date', 'profile_image')
 
 class UserBabySerializer(serializers.ModelSerializer):
     """JSON serializer for userBabies"""
