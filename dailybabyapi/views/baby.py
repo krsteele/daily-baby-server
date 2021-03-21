@@ -89,14 +89,14 @@ class BabyView(ViewSet):
         """Handle GET requests for babies
 
             Returns:
-                Response -- JSON serialized list of entries by user_baby__user
+                Response -- JSON serialized list of babies
         """
 
         dailyUser = DailyUser.objects.get(user=request.auth.user)
 
-        babies = Baby.objects.filter(user_baby__user=dailyUser)
+        babies = UserBaby.objects.filter(user = dailyUser)
 
-        serializer = BabySerializer(babies, many=True, context={'request': request})
+        serializer = UserBabySerializer(babies, many=True, context={'request': request})
         return Response(serializer.data)
 
 
@@ -105,3 +105,11 @@ class BabySerializer(serializers.ModelSerializer):
     class Meta:
         model = Baby
         fields = ('id', 'first_name', 'middle_name', 'last_name', 'nickname', 'birth_date', 'profile_image')
+
+class UserBabySerializer(serializers.ModelSerializer):
+    """JSON serializer for userBabies"""
+    baby = BabySerializer(many=False)
+
+    class Meta:
+        model = UserBaby
+        fields = ('baby', )
