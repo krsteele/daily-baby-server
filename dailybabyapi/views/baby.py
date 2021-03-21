@@ -85,6 +85,20 @@ class BabyView(ViewSet):
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
+    def list(self, request):
+        """Handle GET requests for babies
+
+            Returns:
+                Response -- JSON serialized list of entries by user_baby__user
+        """
+
+        dailyUser = DailyUser.objects.get(user=request.auth.user)
+
+        babies = Baby.objects.filter(user_baby__user=dailyUser)
+
+        serializer = BabySerializer(babies, many=True, context={'request': request})
+        return Response(serializer.data)
+
 
 
 class BabySerializer(serializers.ModelSerializer):
