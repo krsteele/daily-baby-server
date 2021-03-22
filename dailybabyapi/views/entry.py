@@ -114,8 +114,13 @@ class EntryView(ViewSet):
         entry.created_on = request.data["created_on"]
         entry.text = request.data["text"]
         entry.is_private = request.data["is_private"]
-        prompt = Prompt.objects.get(pk=request.data["prompt"])
-        entry.prompt = prompt
+
+        try:
+            prompt = Prompt.objects.get(pk=request.data["prompt"])
+            entry.prompt = prompt
+        except Prompt.DoesNotExist:
+            entry.prompt = None
+
         userBaby = UserBaby.objects.get(pk=request.data["userBaby"])
         entry.user_baby = userBaby
         entry.save()
@@ -165,7 +170,7 @@ class EntryView(ViewSet):
                 entry.photo = entryPhoto
             # If no photo
             except Photo.DoesNotExist as ex:
-                pass
+                entry.photo = None
 
         serializer = EntryListSerializer(
             entries, many=True, context={'request': request})
@@ -190,7 +195,7 @@ class BabySerializer(serializers.ModelSerializer):
     """JSON serializer for baby"""
     class Meta:
         model = Baby
-        fields = ('id', 'nickname', 'profile_image')
+        fields = ('id', 'first_name', 'middle_name', 'last_name', 'nickname', 'profile_image')
 
 class UserBabySerializer(serializers.ModelSerializer):
     """JSON serializer for userBabies"""
