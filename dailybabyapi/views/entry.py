@@ -42,7 +42,8 @@ class EntryView(ViewSet):
         entry.is_private = request.data["is_private"]
         prompt = Prompt.objects.get(pk=request.data["prompt"])
         entry.prompt = prompt
-        userBaby = UserBaby.objects.get(user=dailyUser)
+        baby = Baby.objects.get(pk=request.data["babyId"])
+        userBaby = UserBaby.objects.get(user=dailyUser, baby=baby)
         entry.user_baby = userBaby
         entry.save()
         # instantiate a Photo, assign value sent from client, save new Photo
@@ -51,11 +52,7 @@ class EntryView(ViewSet):
         pic.entry = entry
         pic.save()
 
-        try:
-            serializer = EntrySerializer(entry, context={'request': request})
-            return Response(serializer.data)
-        except ValidationError as ex:
-            return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({}, status=status.HTTP_201_CREATED)
 
 
     def retrieve(self, request, pk=None):
@@ -117,9 +114,14 @@ class EntryView(ViewSet):
         entry.created_on = request.data["created_on"]
         entry.text = request.data["text"]
         entry.is_private = request.data["is_private"]
-        prompt = Prompt.objects.get(pk=request.data["prompt"])
-        entry.prompt = prompt
-        userBaby = UserBaby.objects.get(user=dailyUser)
+
+        try:
+            prompt = Prompt.objects.get(pk=request.data["prompt"])
+            entry.prompt = prompt
+        except Prompt.DoesNotExist:
+            entry.prompt = None
+
+        userBaby = UserBaby.objects.get(pk=request.data["userBaby"])
         entry.user_baby = userBaby
         entry.save()
         # find and delete photo with same entry id
@@ -168,7 +170,7 @@ class EntryView(ViewSet):
                 entry.photo = entryPhoto
             # If no photo
             except Photo.DoesNotExist as ex:
-                pass
+                entry.photo = None
 
         serializer = EntryListSerializer(
             entries, many=True, context={'request': request})
@@ -193,7 +195,7 @@ class BabySerializer(serializers.ModelSerializer):
     """JSON serializer for baby"""
     class Meta:
         model = Baby
-        fields = ('id', 'nickname', 'profile_image')
+        fields = ('id', 'first_name', 'middle_name', 'last_name', 'nickname', 'profile_image')
 
 class UserBabySerializer(serializers.ModelSerializer):
     """JSON serializer for userBabies"""
