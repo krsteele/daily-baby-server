@@ -42,7 +42,8 @@ class EntryView(ViewSet):
         entry.is_private = request.data["is_private"]
         prompt = Prompt.objects.get(pk=request.data["prompt"])
         entry.prompt = prompt
-        userBaby = UserBaby.objects.get(user=dailyUser)
+        baby = Baby.objects.get(pk=request.data["babyId"])
+        userBaby = UserBaby.objects.get(user=dailyUser, baby=baby)
         entry.user_baby = userBaby
         entry.save()
         # instantiate a Photo, assign value sent from client, save new Photo
@@ -51,11 +52,7 @@ class EntryView(ViewSet):
         pic.entry = entry
         pic.save()
 
-        try:
-            serializer = EntrySerializer(entry, context={'request': request})
-            return Response(serializer.data)
-        except ValidationError as ex:
-            return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({}, status=status.HTTP_201_CREATED)
 
 
     def retrieve(self, request, pk=None):
