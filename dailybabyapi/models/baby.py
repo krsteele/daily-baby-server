@@ -1,6 +1,5 @@
 from django.db import models
 from .photos import Photo
-from cloudinary.models import CloudinaryField
 
 
 class Baby(models.Model):
