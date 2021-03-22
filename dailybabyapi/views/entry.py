@@ -116,7 +116,7 @@ class EntryView(ViewSet):
         entry.is_private = request.data["is_private"]
         prompt = Prompt.objects.get(pk=request.data["prompt"])
         entry.prompt = prompt
-        userBaby = UserBaby.objects.get(user=dailyUser)
+        userBaby = UserBaby.objects.get(pk=request.data["userBaby"])
         entry.user_baby = userBaby
         entry.save()
         # find and delete photo with same entry id
