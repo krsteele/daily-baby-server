@@ -161,8 +161,11 @@ class EntryView(ViewSet):
                 Response -- JSON serialized list of entries filtered by userbaby id
         """
         baby= Baby.objects.get(pk=request.query_params['babyId'])
-    
+        
         entries = Entry.objects.filter(user_baby__baby=baby).order_by('-created_on')
+    
+        # get the current user
+        dailyUser = DailyUser.objects.get(user=request.auth.user)
 
         for entry in entries:
             try:
@@ -171,6 +174,12 @@ class EntryView(ViewSet):
             # If no photo
             except Photo.DoesNotExist as ex:
                 entry.photo = None
+            # if the current user created this entry
+            if entry.user_baby.user == dailyUser: 
+                entry.by_current_user = True
+            # if not
+            else:
+                entry.by_current_user = False
 
         serializer = EntryListSerializer(
             entries, many=True, context={'request': request})
@@ -233,4 +242,4 @@ class EntryListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Entry
-        fields = ('id', 'user_baby', 'prompt', 'created_on', 'text', 'is_private', 'photo')
+        fields = ('id', 'user_baby', 'prompt', 'created_on', 'text', 'is_private', 'photo', 'by_current_user')
