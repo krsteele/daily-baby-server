@@ -63,8 +63,10 @@ class BabyView(ViewSet):
 
         try:
             baby = Baby.objects.get(pk=pk)
+
+            user_baby = UserBaby.objects.get(user = daily_user, baby = baby)
                 
-            serializer = BabySerializer(baby, context={'request': request})
+            serializer = UserBabySerializer(user_baby, context={'request': request})
             return Response(serializer.data)
         except Exception as ex:
             return HttpResponseServerError(ex)
@@ -112,4 +114,5 @@ class UserBabySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserBaby
-        fields = ('baby', )
+        fields = ('baby', 'relationship')
+        depth = 1
