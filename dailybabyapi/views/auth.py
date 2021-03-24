@@ -62,7 +62,7 @@ def register_user(request):
 
     daily_user = DailyUser.objects.create(
         user = new_user,
-        phone_number = ""
+        phone_number = "0000000000"
     )
 
     # Commit the user to the database by saving it
