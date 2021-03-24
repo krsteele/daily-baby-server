@@ -7,9 +7,7 @@ python3 manage.py makemigrations dailybabyapi
 python3 manage.py migrate dailybabyapi
 python3 manage.py loaddata users
 python3 manage.py loaddata tokens
-python3 manage.py loaddata days_of_week
 python3 manage.py loaddata daily_users
-python3 manage.py loaddata daily_user_days
 python3 manage.py loaddata prompts
 python3 manage.py loaddata relationships
 python3 manage.py loaddata babies
