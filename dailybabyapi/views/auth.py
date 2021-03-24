@@ -62,7 +62,17 @@ def register_user(request):
 
     daily_user = DailyUser.objects.create(
         user = new_user,
-        phone_number = "0000000000"
+        phone_number = "0000000000",
+        text_time = "00:00",
+        # default profile pic
+        profile_image = "https://res.cloudinary.com/fluffydaydream/image/upload/v1615834269/blank-profile-picture-973460_640_rtmmdv.png",
+        monday = False,
+        tuesday = False,
+        wednesday = False,
+        thursday = False,
+        friday = False,
+        saturday = False,
+        sunday = False
     )
 
     # Commit the user to the database by saving it
