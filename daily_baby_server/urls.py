@@ -29,7 +29,6 @@ from dailybabyapi.views.user import Users
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'profile', Profile, 'profile')
-router.register(r'days', DaysOfWeek, 'day')
 router.register(r'relationships', RelationshipView, 'relationship')
 router.register(r'babies', BabyView, 'baby')
 router.register(r'users', Users, 'user')
