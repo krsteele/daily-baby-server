@@ -13,4 +13,11 @@ class DailyUser(models.Model):
     text_time = models.TimeField(auto_now=False, auto_now_add=False, null=True)
     phone_number = models.CharField(max_length=15)
     profile_image = models.CharField(max_length=200)
+    monday = models.BooleanField
+    tuesday = models.BooleanField
+    wednesday = models.BooleanField
+    thursday = models.BooleanField
+    friday = models.BooleanField
+    saturday = models.BooleanField
+    sunday = models.BooleanField
     
