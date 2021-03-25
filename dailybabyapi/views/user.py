@@ -37,6 +37,7 @@ class Users(ViewSet):
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
     def partial_update(self, request, pk=None):
+        print("request", request.data)
         dailyuser = DailyUser.objects.get(user=request.auth.user)
         
         for key in request.data:
