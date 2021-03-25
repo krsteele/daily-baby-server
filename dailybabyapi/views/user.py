@@ -35,4 +35,14 @@ class Users(ViewSet):
         dailyUser.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+    def partial_update(self, request, pk=None):
+        dailyuser = DailyUser.objects.get(user=request.auth.user)
+        
+        for key in request.data:
+            setattr(dailyuser, key, request.data[key])
+
+        dailyuser.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
         
