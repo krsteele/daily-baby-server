@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'dailybabyapi',
     'cloudinary',
+    'timezone_field',
 ]
 
 REST_FRAMEWORK = {

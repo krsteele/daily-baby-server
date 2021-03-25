@@ -225,7 +225,7 @@ class CommentsSerializer(serializers.ModelSerializer):
     """JSON serializer for comments"""
     class Meta:
         model = Comment
-        fields = ('id', 'user_baby', 'created_on', 'content')
+        fields = ('id', 'user', 'created_on', 'content')
 
 class EntrySerializer(serializers.ModelSerializer):
     photo = PhotoSerializer(many=False)

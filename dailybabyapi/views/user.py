@@ -4,8 +4,6 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
 from dailybabyapi.models import DailyUser
-from dailybabyapi.models import DailyUserDay
-from dailybabyapi.models import DayOfWeek
 
 
 class Users(ViewSet):
@@ -25,31 +23,27 @@ class Users(ViewSet):
         dailyUser.text_time = request.data["textTime"]
         dailyUser.phone_number = request.data["phone"]
         dailyUser.profile_image = request.data["profileImage"]
+        dailyUser.monday = request.data["monday"]
+        dailyUser.tuesday = request.data["tuesday"]
+        dailyUser.wednesday = request.data["wednesday"]
+        dailyUser.thursday = request.data["thursday"]
+        dailyUser.friday = request.data["friday"]
+        dailyUser.saturday = request.data["saturday"]
+        dailyUser.sunday = request.data["sunday"]
 
         dailyUser.user.save()
         dailyUser.save()
 
-        DailyUserDay.objects.filter(user=dailyUser).delete()
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
 
-        listOfDays = request.data["daysOfWeek"]
+    def partial_update(self, request, pk=None):
+        print("request", request.data)
+        dailyuser = DailyUser.objects.get(user=request.auth.user)
         
-        for day in listOfDays:
-            chosenDay = DayOfWeek.objects.get(pk=day)
-            userDay = DailyUserDay()
-            userDay.day = chosenDay
-            userDay.user = dailyUser
-            userDay.save()
+        for key in request.data:
+            setattr(dailyuser, key, request.data[key])
 
- 
+        dailyuser.save()
+
         return Response({}, status=status.HTTP_204_NO_CONTENT)
         
-
-
-
-
-# class DailyUserSerializer(serializers.ModelSerializer):
-#     """JSON serializer for user"""
-#     class Meta:
-#         model=DailyUser
-#         fields=('id', 'user', 'text_time', 'phone_number', 'profile_image')
-#         depth=1

@@ -21,7 +21,6 @@ from django.urls import path
 
 from dailybabyapi.views import register_user, login_user
 from dailybabyapi.views import Profile
-from dailybabyapi.views.daysOfWeek import DaysOfWeek
 from dailybabyapi.views.relationships import RelationshipView
 from dailybabyapi.views.baby import BabyView
 from dailybabyapi.views.user import Users
@@ -29,7 +28,6 @@ from dailybabyapi.views.user import Users
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'profile', Profile, 'profile')
-router.register(r'daysOfWeek', DaysOfWeek, 'daysOfWeek')
 router.register(r'relationships', RelationshipView, 'relationship')
 router.register(r'babies', BabyView, 'baby')
 router.register(r'users', Users, 'user')
