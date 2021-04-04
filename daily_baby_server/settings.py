@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'dailybabyapi',
     'cloudinary',
     'timezone_field',
+    'django_q'
 ]
 
 REST_FRAMEWORK = {
@@ -147,3 +148,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Configure Q cluster
+# More details https://django-q.readthedocs.io/en/latest/configure.html
+Q_CLUSTER = {
+    "name": "dailybaby",
+    "orm": "default",  # Use Django's ORM + database for broker
+}
