@@ -154,4 +154,6 @@ STATIC_URL = '/static/'
 Q_CLUSTER = {
     "name": "dailybaby",
     "orm": "default",  # Use Django's ORM + database for broker
+    "timeout": 5,
+    "retry": 10,
 }
