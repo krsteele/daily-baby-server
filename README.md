@@ -1,5 +1,9 @@
 ## Daily Baby Server
 
+### Video Demo
+
+[Watch the video demo here!](https://youtu.be/WU1eblpRUHw)
+
 ## Learning Goals
 
 - Expand understanding of ORM, React & full-stack development
