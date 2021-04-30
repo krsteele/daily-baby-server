@@ -6,3 +6,4 @@ from .photos import Photo
 from .prompts import Prompt
 from .relationship import Relationship
 from .user_baby import UserBaby
+from .text_event import TextEvent
