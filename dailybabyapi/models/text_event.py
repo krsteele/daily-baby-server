@@ -14,11 +14,7 @@ class TextEvent(models.Model):
 
 
 
-# user_id
-# message_body
-# phone
-# execution_time
-# status
-# user_name
+
+# user_name???
 # timezone???
 # task_id???
