@@ -1,3 +1,10 @@
+""" Module for publishing/republishing text reminder events """
+
+from django.contrib.auth.models import User
+from dailybabyapi.models.daily_user import DailyUser
+from dailybabyapi.models.text_event import TextEvent
+
+from datetime import date
 # Need a function that queues the next text event
 # Called whenever the texting preferences are updated and when a queued event is completed
 
@@ -13,3 +20,6 @@
     #  - what is the next day that is true?
     #  - build a datetime using that day and the preferred time // this will be the execution_time
     #  - instantiate a text_event 
+
+def publish_reminder(user):
+    print("I publish the text reminder events!")
