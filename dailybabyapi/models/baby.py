@@ -1,5 +1,4 @@
 from django.db import models
-from .photos import Photo
 
 
 class Baby(models.Model):
