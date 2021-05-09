@@ -106,7 +106,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dailybaby_db',
-        'USER': 'krsteele',
+        'USER': 'kristensteele',
         'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '5432'
