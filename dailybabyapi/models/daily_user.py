@@ -1,9 +1,7 @@
-from dailybabyapi.models.photos import Photo
 from django.db import models
 
 from django.contrib.auth.models import User
-from .photos import Photo
-from datetime import timezone
+
 
 
 
