@@ -1,11 +1,4 @@
 {
     "python.linting.pylintEnabled": true,
-    "sqltools.connections": [
-        {
-            "previewLimit": 50,
-            "driver": "SQLite",
-            "name": "dailybaby",
-            "database": "db.sqlite3"
-        }
-    ]
+    "sqltools.connections": []
 }
