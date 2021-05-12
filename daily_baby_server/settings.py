@@ -49,8 +49,6 @@ INSTALLED_APPS = [
     'dailybabyapi',
     'cloudinary',
     'timezone_field',
-    'django.contrib.postgres',
-    'django_postgres_extensions'
 ]
 
 REST_FRAMEWORK = {
@@ -106,8 +104,7 @@ WSGI_APPLICATION = 'daily_baby_server.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'ENGINE': 'django_postgres_extensions.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dailybaby_db',
         'USER': 'kristensteele',
         'PASSWORD': '1234',
